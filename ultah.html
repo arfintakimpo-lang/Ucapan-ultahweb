@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ffd6e0,#ffe9f0);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+/* container */
+
+.container{
+max-width:500px;
+z-index:2;
+}
+
+/* cover */
+
+#cover-screen{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+font-family:'Pacifico',cursive;
+color:#ff4d6d;
+font-size:2.5rem;
+}
+
+.btn-open{
+background:#ff4d6d;
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:50px;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* message */
+
+#message-screen{
+display:none;
+}
+
+.photo-frame{
+width:150px;
+height:150px;
+border-radius:50%;
+border:5px solid #ff4d6d;
+margin:20px auto;
+overflow:hidden;
+}
+
+.photo-frame img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.cake{
+font-size:4rem;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+.message-text{
+background:white;
+padding:20px;
+border-radius:15px;
+}
+
+/* BALON */
+
+.balloon{
+position:absolute;
+bottom:-100px;
+font-size:35px;
+animation:balloonUp 10s linear infinite;
+}
+
+@keyframes balloonUp{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+/* LOVE JATUH */
+
+.heart{
+position:absolute;
+top:-50px;
+font-size:25px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(0);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="cover-screen">
+
+<h1>Hey Kamu 🎁</h1>
+
+<p>Ada sesuatu buat kamu...</p>
+
+<button class="btn-open" onclick="openBirthday()">
+Buka Hadiah
+</button>
+
+</div>
+
+<div id="message-screen">
+
+<div class="photo-frame">
+
+<!-- GANTI FOTO -->
+<img src="png">
+
+</div>
+
+<div class="cake">🎂</div>
+
+<h1>Happy Birthday</h1>
+
+<div class="message-text">
+
+<!-- GANTI NAMA -->
+<p><strong>Untuk [Ayu Aprillia]</strong></p>
+
+<!-- GANTI UCAPAN -->
+<p>
+Selamat ulang tahun.  
+Semoga semua hal baik datang ke hidupmu.  
+Terima kasih sudah hadir dan membuat hidupku lebih indah.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BALON -->
+<div class="balloon" style="left:10%">🎈</div>
+<div class="balloon" style="left:30%;animation-delay:2s">🎈</div>
+<div class="balloon" style="left:50%;animation-delay:4s">🎈</div>
+<div class="balloon" style="left:70%;animation-delay:1s">🎈</div>
+<div class="balloon" style="left:90%;animation-delay:3s">🎈</div>
+
+<!-- LOVE JATUH -->
+<div class="heart" style="left:15%">❤️</div>
+<div class="heart" style="left:35%;animation-delay:2s">❤️</div>
+<div class="heart" style="left:55%;animation-delay:4s">❤️</div>
+<div class="heart" style="left:75%;animation-delay:1s">❤️</div>
+<div class="heart" style="left:90%;animation-delay:3s">❤️</div>
+
+<!-- MUSIK -->
+<audio id="bg-music" loop>
+
+<!-- GANTI LAGU DISINI -->
+<source src="lagu.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<script>
+
+function openBirthday(){
+
+document.getElementById("cover-screen").style.display="none"
+
+let msg=document.getElementById("message-screen")
+msg.style.display="block"
+
+document.getElementById("bg-music").play()
+
+confetti({
+particleCount:200,
+spread:120
+})
+
+}
+
+</script>
+
+</body>
+</html>
